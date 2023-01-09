@@ -114,7 +114,7 @@ local Telest = Teles1:NewSection("Teleports")
 
 ----------------main-------------------
 Telest:NewButton("Tp to soul society", "Tps you to soul society", function()
-    game:GetService('TeleportService'):Teleport(705692815,game.Players.LocalPlayer)
+    game:GetService('TeleportService'):Teleport(7056922815,game.Players.LocalPlayer)
 end)
 
 -----ws---------
