@@ -12,13 +12,15 @@ local pl = Window:NewTab("Local Player")
 local plSection = pl:NewSection("Movement")
 local Teles1 = Window:NewTab("Teleports")
 local Teles = Teles1:NewSection("Teleport")
+local ui = Window:NewTab("Settings")
+local ui1 = ui:NewTab("GUI")
     --------------------ui----------------------------
-    MainSection:NewKeybind("Toggle keybind", "Toggles ui", Enum.KeyCode.LeftAlt, function()
+    ui1:NewKeybind("Toggle keybind", "Toggles ui", Enum.KeyCode.LeftAlt, function()
         Library:ToggleUI()
     end)
 
     -----------------------------------quest--------------------
-    MainSection:NewKeybind("Get quest for diabolus", "gets quest", Enum.KeyCode.P , function()
+    MainSection:NewKeybind("Get quest for Diabolus", "gets quest", Enum.KeyCode.P, function()
         local args = {
         [1] = "Scourge of the Realm",
         [2] = workspace.NPCs.DD_NightMare12
@@ -64,7 +66,7 @@ local Teles = Teles1:NewSection("Teleport")
         game:GetService("ReplicatedStorage").Remotes.Purchase:FireServer(unpack(args))
     end)    
     -----------tp------------------------
-    MainSection:NewButton("Tp to diabolus", "Tps you to diabolus", function()
+    MainSection:NewButton("Tp to Diabolus", "Tps you to diabolus", function()
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-3847, -152, 882)
     end)-----Diabolus tp
 
@@ -109,16 +111,16 @@ if game.PlaceId == 8934886191 then
     local Window = Library.CreateLib("Peaper 2 by saul", "DarkTheme")
     local pl = Window:NewTab("Local Player")
 local plSection = pl:NewSection("Movement")
-local Teles1 = Window:NewTab("Teleports")
-local Telest = Teles1:NewSection("Teleports")
+local Teles2 = Window:NewTab("Teleports")
+local Telest = Teles2:NewSection("Teleports")
 
 ----------------main-------------------
 Telest:NewButton("Tp to soul society", "Tps you to soul society", function()
-        placeid = 7056922815
-        player = game.Players.LocalPlayer
-        tp = game:GetService('TeleportService')
-        
-            tp:Teleport(placeid, player)
+    placeid = 7056922815
+    player = game.Players.LocalPlayer
+    tp = game:GetService('TeleportService')
+    
+        tp:Teleport(placeid, player)
 end)
 
 -----ws---------
