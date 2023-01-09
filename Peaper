@@ -100,6 +100,16 @@ local Window = Library.CreateLib("Peaper 2 by saul", "DarkTheme")
         
             tp:Teleport(placeid, player)
     end)
+
+        --------------------ui----------------------------
+        local ui22 = Window:NewTab("Settings")
+        local ui1 = ui22:NewTab("GUI")
+    
+    
+        ui1:NewKeybind("Toggle keybind", "Toggles ui", Enum.KeyCode.LeftAlt, function()
+            Library:ToggleUI()
+        end)
+    end
 end
 
 if game.PlaceId == 8934886191 then
@@ -129,9 +139,10 @@ plSection:NewToggle("Walkspeed", "Gives you 100 ws", function(on)
         game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
     end
 end)--------ws
+
     --------------------ui----------------------------
-    local ui = Window:NewTab("Settings")
-    local ui1 = ui:NewTab("GUI")
+    local ui22 = Window:NewTab("Settings")
+    local ui1 = ui22:NewTab("GUI")
 
 
     ui1:NewKeybind("Toggle keybind", "Toggles ui", Enum.KeyCode.LeftAlt, function()
