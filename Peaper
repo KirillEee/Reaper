@@ -5,17 +5,12 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
 local Window = Library.CreateLib("Peaper 2 by saul", "DarkTheme")
 
 
-local Main = Window:NewTab("Peaper 2")
-local MainSection = Main:NewSection("Аuto quest")
-local RollSection = Main:NewSection("Rolls")
-local pl = Window:NewTab("Local Player")
-local plSection = pl:NewSection("Movement")
-local Teles1 = Window:NewTab("Teleports")
-local Teles = Teles1:NewSection("Teleport")
-local ui = Window:NewTab("Settings")
-local ui1 = ui:NewTab("GUI")
-
-    -----------------------------------quest--------------------
+    ----------------------------------quest--------------------
+    local Main = Window:NewTab("Peaper 2")
+    local MainSection = Main:NewSection("Аuto quest")
+    local RollSection = Main:NewSection("Rolls") 
+    
+    
     MainSection:NewKeybind("Get quest for Diabolus", "gets quest", Enum.KeyCode.P, function()
         local args = {
         [1] = "Scourge of the Realm",
@@ -70,6 +65,8 @@ local ui1 = ui:NewTab("GUI")
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(127, 5, 1278)
     end)-----f33ny tp
     -----------------LocalPlayer-----------------
+    local pl = Window:NewTab("Local Player")
+    local plSection = pl:NewSection("Movement")
 
     plSection:NewToggle("Walkspeed", "Gives you 100 ws", function(on)
         if on then
@@ -80,6 +77,10 @@ local ui1 = ui:NewTab("GUI")
     end)
 
     -------------------teleports-------------------
+    local Teles1 = Window:NewTab("Teleports")
+    local Teles = Teles1:NewSection("Teleport")
+    
+    
     Teles:NewButton("Tp to overworld", "Tp you to normal world", function()
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(18, 5, 1360)
     end)-------normal
@@ -106,9 +107,9 @@ if game.PlaceId == 8934886191 then
     local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
     local Window = Library.CreateLib("Peaper 2 by saul", "DarkTheme")
     local pl = Window:NewTab("Local Player")
-local plSection = pl:NewSection("Movement")
-local Teles2 = Window:NewTab("Teleports")
-local Telest = Teles2:NewSection("Teleports")
+    local plSection = pl:NewSection("Movement")
+    local Teles2 = Window:NewTab("Teleports")
+    local Telest = Teles2:NewSection("Teleports")
 
 ----------------main-------------------
 Telest:NewButton("Tp to soul society", "Tps you to soul society", function()
@@ -129,6 +130,10 @@ plSection:NewToggle("Walkspeed", "Gives you 100 ws", function(on)
     end
 end)--------ws
     --------------------ui----------------------------
+    local ui = Window:NewTab("Settings")
+    local ui1 = ui:NewTab("GUI")
+
+
     ui1:NewKeybind("Toggle keybind", "Toggles ui", Enum.KeyCode.LeftAlt, function()
         Library:ToggleUI()
     end)
