@@ -14,11 +14,11 @@ local plSection = pl:NewSection("Movement")
 local Teles1 = Window:NewTab("Teleports")
 local Teles = Teles1:NewSection("Teleport")
 --------------UI------------------
-
-
+local GUI = Window:NewTab("Settings")
+local GUI1 = GUI:NewSection("Gui")
     ----------------------------------quest--------------------
 
-    MainSection:NewKeybind("Get quest for Diabolus", "gets quest", Enum.KeyCode.P, function()
+    MainSection:NewKeybind("Get quest for Diabolus", "Gets quest", Enum.KeyCode.P, function()
         local args = {
         [1] = "Scourge of the Realm",
         [2] = workspace.NPCs.DD_NightMare12
@@ -40,7 +40,7 @@ local Teles = Teles1:NewSection("Teleport")
 
 
     --------secondary-----
-    RollSection:NewButton("RollSecondary", "rolls secondary", function()
+    RollSection:NewButton("RollSecondary", "Rolls Secondary", function()
         local args = {
         [1] = "Roll Secondary"
     }
@@ -73,7 +73,7 @@ local Teles = Teles1:NewSection("Teleport")
     end)-----f33ny tp
     -----------------LocalPlayer-----------------
 
-    plSection:NewToggle("Walkspeed", "Gives you 100 ws", function(on)
+    plSection:NewToggle("WalkSpeed", "Gives you 100 ws", function(on)
         if on then
                 game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 100
         else
@@ -85,7 +85,7 @@ local Teles = Teles1:NewSection("Teleport")
 
     
     
-    Teles:NewButton("Tp to overworld", "Tp you to normal world", function()
+    Teles:NewButton("Tp to Overworld", "Tp you to normal world", function()
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(18, 5, 1360)
     end)-------normal
 
@@ -93,11 +93,11 @@ local Teles = Teles1:NewSection("Teleport")
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(5132, 198, 1226)
     end)---------hueco
 
-    Teles:NewButton("Tp to hell", "Tps you to hell", function()
+    Teles:NewButton("Tp to Hell", "Tps you to hell", function()
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-3220, -133, 1041)
     end)------hell
 
-    Teles:NewButton("Tp to soul society", "Tps you to soul society", function()
+    Teles:NewButton("Tp to Soul Society", "Tps you to soul society", function()
         placeid = 8934886191
         player = game.Players.LocalPlayer
         tp = game:GetService('TeleportService')
@@ -106,6 +106,9 @@ local Teles = Teles1:NewSection("Teleport")
     end)
 
         --------------------ui----------------------------
+        GUI1:NewKeybind("Toggle ui", "Toggle ui", Enum.KeyCode.LeftAlt, function()
+        Library:ToggleUI()
+        end)
 end
 
 if game.PlaceId == 8934886191 then
@@ -119,10 +122,11 @@ if game.PlaceId == 8934886191 then
     local Teles2 = Window:NewTab("Teleports")
     local Telest = Teles2:NewSection("Teleports")
     -------------------UI------------------
-
+    local ui22 = Window:NewTab("Settings")
+    local ui11 = ui22:NewSection("Ui")
 
 ----------------main-------------------
-Telest:NewButton("Tp to soul society", "Tps you to soul society", function()
+Telest:NewButton("Tp to Normal world", "Tps you to soul society", function()
     placeid = 7056922815
     player = game.Players.LocalPlayer
     tp = game:GetService('TeleportService')
@@ -132,11 +136,16 @@ end)
 
 -----ws---------
 
-plSection:NewToggle("Walkspeed", "Gives you 100 ws", function(on)
+plSection:NewToggle("WalkSpeed", "Gives you 100 ws", function(on)
     if on then
             game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 100
     else
         game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
     end
 end)--------ws
+
+----------------ui------------------
+ui11:NewKeybind("Toggle ui", "Toggles ui", Enum.KeyCode.LeftAlt, function()
+    Library:ToggleUI()
+end)
 end
