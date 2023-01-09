@@ -18,7 +18,7 @@ local Teles = Teles1:NewSection("Teleport")
     end)
 
     -----------------------------------quest--------------------
-    MainSection:NewKeybind("get quest for dibolus", "gets quest", Enum.KeyCode. , function()
+    MainSection:NewKeybind("get quest for dibolus", "gets quest", Enum.KeyCode.P , function()
         local args = {
         [1] = "Scourge of the Realm",
         [2] = workspace.NPCs.DD_NightMare12
@@ -40,7 +40,7 @@ local Teles = Teles1:NewSection("Teleport")
 
 
     --------secondary-----
-    RollSection:NewKeybind("RollSecondary", "rolls secondary", Enum.KeyCode.F, function()
+    RollSection:NewButton("RollSecondary", "rolls secondary", function()
         local args = {
         [1] = "Roll Secondary"
     }
