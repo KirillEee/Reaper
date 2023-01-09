@@ -109,10 +109,9 @@ local ui11 = ui22:NewTab("GUI")
 
         --------------------ui----------------------------
     
-        ui11:NewKeybind("Toggle keybind", "Toggles ui", Enum.KeyCode.LeftAlt, function()
-            Library:ToggleUI()
-        end)
-    end
+    ui11:NewKeybind("Toggle keybind", "Toggles ui", Enum.KeyCode.LeftAlt, function()
+        Library:ToggleUI()
+    end)
 end
 
 if game.PlaceId == 8934886191 then
