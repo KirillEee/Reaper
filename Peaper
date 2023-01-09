@@ -82,18 +82,18 @@ local Teles = Teles1:NewSection("Teleport")
     end)
 
     -------------------teleports-------------------
+    Teles:NewButton("Tp to overworld", "Tp you to normal world", function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(18, 5, 1360)
+    end)-------normal
+
     Teles:NewButton("Tp to Hueco", "Tps you to hueco", function()
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(5132, 198, 1226)
     end)---------hueco
 
-    Teles:NewButton("Tp to overworld", "Tp you to normal world", function()
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(5132, 198, 1226)
-    end)-------normal
-
     Teles:NewButton("Tp to hell", "Tps you to hell", function()
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-3220, -133, 1041)
     end)------hell
-    
+
     Teles:NewButton("Tp to soul society", "Tps you to soul society", function()
         placeid = 8934886191
         player = game.Players.LocalPlayer
