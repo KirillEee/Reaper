@@ -87,7 +87,7 @@ local Teles = Teles1:NewSection("Teleport")
     end)---------hueco
 
     Teles:NewButton("Tp to overworld", "Tp you to normal world", function()
-        game.Players.LocalPlayer.Character.HumanoidRootPart.Cframe = CFrame.new(18, 5, 1360)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(5132, 198, 1226)
     end)-------normal
 
     Teles:NewButton("Tp to hell", "Tps you to hell", function()
