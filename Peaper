@@ -14,10 +14,6 @@ local Teles1 = Window:NewTab("Teleports")
 local Teles = Teles1:NewSection("Teleport")
 local ui = Window:NewTab("Settings")
 local ui1 = ui:NewTab("GUI")
-    --------------------ui----------------------------
-    ui1:NewKeybind("Toggle keybind", "Toggles ui", Enum.KeyCode.LeftAlt, function()
-        Library:ToggleUI()
-    end)
 
     -----------------------------------quest--------------------
     MainSection:NewKeybind("Get quest for Diabolus", "gets quest", Enum.KeyCode.P, function()
@@ -132,4 +128,8 @@ plSection:NewToggle("Walkspeed", "Gives you 100 ws", function(on)
         game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
     end
 end)--------ws
+    --------------------ui----------------------------
+    ui1:NewKeybind("Toggle keybind", "Toggles ui", Enum.KeyCode.LeftAlt, function()
+        Library:ToggleUI()
+    end)
 end
