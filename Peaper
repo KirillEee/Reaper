@@ -1,4 +1,6 @@
------------------lib-----------------
+-----------------Main----------------------------------------------------------
+if game.PlaceId == 7056922815 then
+    -----------------lib-----------------
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 local Window = Library.CreateLib("Peaper 2 by saul", "DarkTheme")
 
@@ -8,61 +10,122 @@ local MainSection = Main:NewSection("Аuto quest")
 local RollSection = Main:NewSection("Rolls")
 local pl = Window:NewTab("Local Player")
 local plSection = pl:NewSection("Movement")
------------------Main----------------------------------------------------------
+local Teleport = Window:NewTab("Teleports")
+local tl = Teleport:NewSection("Teleports")
+    --------------------ui----------------------------
+    MainSection:NewKeybind("Toggle keybind", "Toggles ui", Enum.KeyCode.LeftAlt, function()
+        Library:ToggleUI()
+    end)
 
---------------------ui----------------------------
-MainSection:NewKeybind("Toggle keybind", "Toggles ui", Enum.KeyCode.LeftAlt, function()
-    Library:ToggleUI()
-end)
-
------------------------------------quest--------------------
-MainSection:NewKeybind("get quest for dibolus", "gets quest", Enum.KeyCode.F, function()
-    local args = {
-    [1] = "Scourge of the Realm",
-    [2] = workspace.NPCs.DD_NightMare12
-}
-
-game:GetService("ReplicatedStorage").Remotes.TakeQuest:FireServer(unpack(args))
-
-end)
-----------------rolls------------------------
-RollSection:NewKeybind("RollSecondary", "rolls secondary", Enum.KeyCode.F, function()
-    local args = {
-    [1] = "Roll Secondary"
-}
-
-game:GetService("ReplicatedStorage").Remotes.Purchase:FireServer(unpack(args))
-end)
-----race-----
-RollSection:NewButton("Roll Race", "Rolls race", function()
-    local args = {
-        [1] = "Race Roll"
+    -----------------------------------quest--------------------
+    MainSection:NewKeybind("get quest for dibolus", "gets quest", Enum.KeyCode.F, function()
+        local args = {
+        [1] = "Scourge of the Realm",
+        [2] = workspace.NPCs.DD_NightMare12
     }
-    
-    game:GetService("ReplicatedStorage").Remotes.Purchase:FireServer(unpack(args))
-end)
----Color-----
-RollSection:NewButton("Roll Color", "Rolls color", function()
+
+    game:GetService("ReplicatedStorage").Remotes.TakeQuest:FireServer(unpack(args))
+
+    end)
+    -------exploration-------
+    MainSection:NewButton("Get exploration quest read desc.", "Press this button and tp to diabolus", function()
     local args = {
-        [1] = "Roll Color"
+        [1] = "Exploration!!!",
+        [2] = workspace.NPCs.Just_Kenshii
     }
-    
+
+    game:GetService("ReplicatedStorage").Remotes.TakeQuest:FireServer(unpack(args))
+    end)
+    ----------------rolls------------------------
+
+
+    --------secondary-----
+    RollSection:NewKeybind("RollSecondary", "rolls secondary", Enum.KeyCode.F, function()
+        local args = {
+        [1] = "Roll Secondary"
+    }
+
     game:GetService("ReplicatedStorage").Remotes.Purchase:FireServer(unpack(args))
-end)    
------------tp------------------------
-MainSection:NewButton("Tp to diabolus", "Tps you to diabolus", function()
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-3847, -152, 882)
-end)
+    end)
+    ----race-----
+    RollSection:NewButton("Roll Race", "Rolls race", function()
+        local args = {
+            [1] = "Race Roll"
+        }
+    
+        game:GetService("ReplicatedStorage").Remotes.Purchase:FireServer(unpack(args))
+    end)
+    ---Color-----
+    RollSection:NewButton("Roll Color", "Rolls color", function()
+        local args = {
+            [1] = "Roll Color"
+        }
+    
+        game:GetService("ReplicatedStorage").Remotes.Purchase:FireServer(unpack(args))
+    end)    
+    -----------tp------------------------
+    MainSection:NewButton("Tp to diabolus", "Tps you to diabolus", function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-3847, -152, 882)
+    end)-----Diabolus tp
 
-RollSection:NewButton("Tp to F33NY", "Teleports you to feeny", function()
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(127, 5, 1278)
-end)
------------------LocalPlayer-----------------
+    RollSection:NewButton("Tp to F33NY", "Teleports you to feeny", function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(127, 5, 1278)
+    end)-----f33ny tp
+    -----------------LocalPlayer-----------------
 
+    plSection:NewToggle("Walkspeed", "Gives you 100 ws", function(on)
+        if on then
+                game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 100
+        else
+            game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+        end
+    end)
+
+    -------------------teleports-------------------
+    tl:NewButton("Tp to Hueco", function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(5132, 198, 1226)
+    end)---------hueco
+
+    tl:NewButton("Tp to overworld", "Tp you to normal world", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.Cframe = CFrame.new(52, 5, 1331)
+    end)-------normal
+
+    tl:NewButton("Tp to hell", "Tps you to hell", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-3220, -133, 1041)
+    end)------hell
+
+    tl:NewButton("Tp to soul society", "Tps you to soul society", function()
+        placeid = 8934886191
+        player = game.Players.LocalPlayer
+        tp = game:GetService('TeleportService')
+        
+            tp:Teleport(placeid, player)
+    end)
+end
+
+if game.PlaceId == 8934886191 then
+    -----------------ui-------------
+    local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+    local Window = Library.CreateLib("Peaper 2 by saul", "DarkTheme")
+    local pl = Window:NewTab("Local Player")
+local plSection = pl:NewSection("Movement")
+local Teleport = Window:NewTab("Teleports")
+local tl = Teleport:NewSection("Teleports")
+
+----------------main-------------------
 plSection:NewToggle("Walkspeed", "Gives you 100 ws", function(on)
     if on then
             game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 100
     else
         game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
     end
-end)
+end)--------ws
+----------------------tps------------------
+tl:NewButton("Tp to soul society", "Tps you to soul society", function()
+    placeid = 7056922815
+    player = game.Players.LocalPlayer
+    tp = game:GetService('TeleportService')
+    
+        tp:Teleport(placeid, player)
+    end)
+end
