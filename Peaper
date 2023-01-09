@@ -3,14 +3,23 @@ if game.PlaceId == 7056922815 then
     -----------------lib-----------------
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 local Window = Library.CreateLib("Peaper 2 by saul", "DarkTheme")
+----------------main------------
+local Main = Window:NewTab("Peaper 2")
+local MainSection = Main:NewSection("Аuto quest")
+local RollSection = Main:NewSection("Rolls")
+----------pl----------
+local pl = Window:NewTab("Local Player")
+local plSection = pl:NewSection("Movement")
+-----------Teleports--------------
+local Teles1 = Window:NewTab("Teleports")
+local Teles = Teles1:NewSection("Teleport")
+--------------UI------------------
+local ui22 = Window:NewTab("Settings")
+local ui11 = ui22:NewTab("GUI")
 
 
     ----------------------------------quest--------------------
-    local Main = Window:NewTab("Peaper 2")
-    local MainSection = Main:NewSection("Аuto quest")
-    local RollSection = Main:NewSection("Rolls") 
-    
-    
+
     MainSection:NewKeybind("Get quest for Diabolus", "gets quest", Enum.KeyCode.P, function()
         local args = {
         [1] = "Scourge of the Realm",
@@ -65,8 +74,6 @@ local Window = Library.CreateLib("Peaper 2 by saul", "DarkTheme")
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(127, 5, 1278)
     end)-----f33ny tp
     -----------------LocalPlayer-----------------
-    local pl = Window:NewTab("Local Player")
-    local plSection = pl:NewSection("Movement")
 
     plSection:NewToggle("Walkspeed", "Gives you 100 ws", function(on)
         if on then
@@ -77,8 +84,7 @@ local Window = Library.CreateLib("Peaper 2 by saul", "DarkTheme")
     end)
 
     -------------------teleports-------------------
-    local Teles1 = Window:NewTab("Teleports")
-    local Teles = Teles1:NewSection("Teleport")
+
     
     
     Teles:NewButton("Tp to overworld", "Tp you to normal world", function()
@@ -102,11 +108,8 @@ local Window = Library.CreateLib("Peaper 2 by saul", "DarkTheme")
     end)
 
         --------------------ui----------------------------
-        local ui22 = Window:NewTab("Settings")
-        local ui1 = ui22:NewTab("GUI")
     
-    
-        ui1:NewKeybind("Toggle keybind", "Toggles ui", Enum.KeyCode.LeftAlt, function()
+        ui11:NewKeybind("Toggle keybind", "Toggles ui", Enum.KeyCode.LeftAlt, function()
             Library:ToggleUI()
         end)
     end
@@ -116,10 +119,15 @@ if game.PlaceId == 8934886191 then
     -----------------ui-------------
     local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
     local Window = Library.CreateLib("Peaper 2 by saul", "DarkTheme")
+    -----------------Player---------------
     local pl = Window:NewTab("Local Player")
     local plSection = pl:NewSection("Movement")
+    --------------------teleports---------------
     local Teles2 = Window:NewTab("Teleports")
     local Telest = Teles2:NewSection("Teleports")
+    -------------------UI------------------
+    local ui = Window:NewTab("Settings")
+    local ui1 = ui:NewTab("GUI")
 
 ----------------main-------------------
 Telest:NewButton("Tp to soul society", "Tps you to soul society", function()
@@ -141,11 +149,8 @@ plSection:NewToggle("Walkspeed", "Gives you 100 ws", function(on)
 end)--------ws
 
     --------------------ui----------------------------
-    local ui22 = Window:NewTab("Settings")
-    local ui1 = ui22:NewTab("GUI")
 
-
-    ui1:NewKeybind("Toggle keybind", "Toggles ui", Enum.KeyCode.LeftAlt, function()
+    ui11:NewKeybind("Toggle keybind", "Toggles ui", Enum.KeyCode.LeftAlt, function()
         Library:ToggleUI()
     end)
 end
