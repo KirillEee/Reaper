@@ -11,7 +11,7 @@ local RollSection = Main:NewSection("Rolls")
 local pl = Window:NewTab("Local Player")
 local plSection = pl:NewSection("Movement")
 local Teleport = Window:NewTab("Teleports")
-local tl = Teleport:NewSection("Teleports")
+local tl = Teleport:NewSection("Teleport")
     --------------------ui----------------------------
     MainSection:NewKeybind("Toggle keybind", "Toggles ui", Enum.KeyCode.LeftAlt, function()
         Library:ToggleUI()
@@ -82,7 +82,7 @@ local tl = Teleport:NewSection("Teleports")
     end)
 
     -------------------teleports-------------------
-    tl:NewButton("Tp to Hueco", function()
+    tl:NewButton("Tp to Hueco", "Tps you to hueco", function()
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(5132, 198, 1226)
     end)---------hueco
 
