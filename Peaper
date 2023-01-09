@@ -18,7 +18,7 @@ local Teles = Teles1:NewSection("Teleport")
     end)
 
     -----------------------------------quest--------------------
-    MainSection:NewKeybind("get quest for dibolus", "gets quest", Enum.KeyCode.F, function()
+    MainSection:NewKeybind("get quest for dibolus", "gets quest", Enum.KeyCode. , function()
         local args = {
         [1] = "Scourge of the Realm",
         [2] = workspace.NPCs.DD_NightMare12
