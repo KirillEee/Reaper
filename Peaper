@@ -40,7 +40,7 @@ local GUI1 = GUI:NewSection("Gui")
 
 
     --------secondary-----
-    RollSection:NewButton("RollSecondary", "Rolls Secondary", function()
+    RollSection:NewButton("RollSecondary", "Rolls secondary", function()
         local args = {
         [1] = "Roll Secondary"
     }
@@ -81,9 +81,58 @@ local GUI1 = GUI:NewSection("Gui")
         end
     end)
 
+    plSection:NewButton("Rejoin", "Rejoins on same server", function()
+        local ts = game:GetService("TeleportService")
+        local p = game:GetService("Players").LocalPlayer
+        ts:Teleport(game.PlaceId, p)
+    end)-------rejoin
+
+    plSection:NewButton("Infinite Yield", "Injects inf yield", function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+    end)-------inf yield
+    plSection:NewButton("Server hop", "Server hops on diff server", function()
+        repeat wait() until game:IsLoaded() and game.Players.LocalPlayer
+local HttpService, TPService = game:GetService"HttpService", game:GetService"TeleportService";
+local OtherServers = HttpService:JSONDecode(game:HttpGet("https://games.roblox.com/v1/games/"..game.PlaceId.."/servers/Public?sortOrder=Asc&limit=100"))
+function joinNew()
+    if not isfile('servers.sss') then 
+        writefile('servers.sss',HttpService:JSONEncode({}))
+    end
+    local dontJoin = readfile('servers.sss') 
+    dontJoin = HttpService:JSONDecode(dontJoin)
+
+    for Index, Server in next, OtherServers["data"] do
+        if Server ~= game.JobId then
+            local j = true
+            for a,c in pairs(dontJoin) do 
+               if c == Server.id then 
+                   j = false 
+               end
+            end
+            if j then
+                table.insert(dontJoin,Server["id"])
+                writefile("servers.sss",HttpService:JSONEncode(dontJoin))
+                wait()
+                return Server['id']
+                
+                
+            end
+        end
+    end
+end
+
+local server = joinNew()
+if not server then 
+    writefile("servers.sss",HttpService:JSONEncode({}))
+    local server = joinNew()
+    TPService:TeleportToPlaceInstance(game.PlaceId, server)
+else
+TPService:TeleportToPlaceInstance(game.PlaceId, server)
+end
+end)
+
     -------------------teleports-------------------
 
-    
     
     Teles:NewButton("Tp to Overworld", "Tp you to normal world", function()
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(18, 5, 1360)
@@ -105,12 +154,19 @@ local GUI1 = GUI:NewSection("Gui")
             tp:Teleport(placeid, player)
     end)
 
-        --------------------ui----------------------------
-        GUI1:NewKeybind("Toggle ui", "Toggle ui", Enum.KeyCode.LeftAlt, function()
-        Library:ToggleUI()
-        end)
+    Teles:NewButton("Tp to Prestige Fight", "Tps you to battle", function()
+        local args = {
+            [1] = "Prestige Master"
+        }
+            
+        game:GetService("ReplicatedStorage").Remotes.Teleport:FireServer(unpack(args))
+    end)
+--------------------------------ui-----------------------
+GUI1:NewKeybind("Toggle ui", "Toggles ui", Enum.KeyCode.LeftAlt, function()
+    Library:ToggleUI()
+end)
 end
-
+----------------------------------SOUL SOCIETY--------------------------------
 if game.PlaceId == 8934886191 then
     -----------------ui-------------
     local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
@@ -132,6 +188,14 @@ Telest:NewButton("Tp to Normal world", "Tps you to soul society", function()
     tp = game:GetService('TeleportService')
     
         tp:Teleport(placeid, player)
+end)------normal
+
+Telest:NewButton("Tp to Prestige Fight", "Tps you to battle", function()
+    local args = {
+        [1] = "Prestige Master"
+    }
+    
+    game:GetService("ReplicatedStorage").Remotes.Teleport:FireServer(unpack(args))
 end)
 
 -----ws---------
@@ -143,6 +207,57 @@ plSection:NewToggle("WalkSpeed", "Gives you 100 ws", function(on)
         game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
     end
 end)--------ws
+
+plSection:NewButton("Infinite Yield", "Injects inf yield", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)---inf yield
+
+plSection:NewButton("Rejoin", "Rejoins on same server", function()
+    local ts = game:GetService("TeleportService")
+    local p = game:GetService("Players").LocalPlayer
+    ts:Teleport(game.PlaceId, p)
+end)-----rejoin
+
+plSection:NewButton("Server hop", "Server hops on diff server", function()
+    repeat wait() until game:IsLoaded() and game.Players.LocalPlayer
+local HttpService, TPService = game:GetService"HttpService", game:GetService"TeleportService";
+local OtherServers = HttpService:JSONDecode(game:HttpGet("https://games.roblox.com/v1/games/"..game.PlaceId.."/servers/Public?sortOrder=Asc&limit=100"))
+function joinNew()
+if not isfile('servers.sss') then 
+    writefile('servers.sss',HttpService:JSONEncode({}))
+end
+local dontJoin = readfile('servers.sss') 
+dontJoin = HttpService:JSONDecode(dontJoin)
+
+for Index, Server in next, OtherServers["data"] do
+    if Server ~= game.JobId then
+        local j = true
+        for a,c in pairs(dontJoin) do 
+           if c == Server.id then 
+               j = false 
+           end
+        end
+        if j then
+            table.insert(dontJoin,Server["id"])
+            writefile("servers.sss",HttpService:JSONEncode(dontJoin))
+            wait()
+            return Server['id']
+            
+            
+        end
+    end
+end
+end
+
+local server = joinNew()
+if not server then 
+writefile("servers.sss",HttpService:JSONEncode({}))
+local server = joinNew()
+TPService:TeleportToPlaceInstance(game.PlaceId, server)
+else
+TPService:TeleportToPlaceInstance(game.PlaceId, server)
+end
+end)
 
 ----------------ui------------------
 ui11:NewKeybind("Toggle ui", "Toggles ui", Enum.KeyCode.LeftAlt, function()
