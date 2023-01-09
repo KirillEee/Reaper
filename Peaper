@@ -1,0 +1,68 @@
+-----------------lib-----------------
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Peaper 2 by saul", "DarkTheme")
+
+
+local Main = Window:NewTab("Peaper 2")
+local MainSection = Main:NewSection("Аuto quest")
+local RollSection = Main:NewSection("Rolls")
+local pl = Window:NewTab("Local Player")
+local plSection = pl:NewSection("Movement")
+-----------------Main----------------------------------------------------------
+
+--------------------ui----------------------------
+MainSection:NewKeybind("Toggle keybind", "Toggles ui", Enum.KeyCode.LeftAlt, function()
+    Library:ToggleUI()
+end)
+
+-----------------------------------quest--------------------
+MainSection:NewKeybind("get quest for dibolus", "gets quest", Enum.KeyCode.F, function()
+    local args = {
+    [1] = "Scourge of the Realm",
+    [2] = workspace.NPCs.DD_NightMare12
+}
+
+game:GetService("ReplicatedStorage").Remotes.TakeQuest:FireServer(unpack(args))
+
+end)
+----------------rolls------------------------
+RollSection:NewKeybind("RollSecondary", "rolls secondary", Enum.KeyCode.F, function()
+    local args = {
+    [1] = "Roll Secondary"
+}
+
+game:GetService("ReplicatedStorage").Remotes.Purchase:FireServer(unpack(args))
+end)
+----race-----
+RollSection:NewButton("Roll Race", "Rolls race", function()
+    local args = {
+        [1] = "Race Roll"
+    }
+    
+    game:GetService("ReplicatedStorage").Remotes.Purchase:FireServer(unpack(args))
+end)
+---Color-----
+RollSection:NewButton("Roll Color", "Rolls color", function()
+    local args = {
+        [1] = "Roll Color"
+    }
+    
+    game:GetService("ReplicatedStorage").Remotes.Purchase:FireServer(unpack(args))
+end)    
+-----------tp------------------------
+MainSection:NewButton("Tp to diabolus", "Tps you to diabolus", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-3847, -152, 882)
+end)
+
+RollSection:NewButton("Tp to F33NY", "Teleports you to feeny", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(127, 5, 1278)
+end)
+-----------------LocalPlayer-----------------
+
+plSection:NewToggle("Walkspeed", "Gives you 100 ws", function(on)
+    if on then
+            game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 100
+    else
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+    end
+end)
